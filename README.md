@@ -6,14 +6,14 @@ O caching é um passo importante para se começar a pensar quando houver uma gra
 
 Se mal aplicado, o caching pode trazer sérias dores de cabeça como perda de desemprenho do servidor, problemas na arquitetura do app e até mesmo financeiro, já que existem alternativas que ocasionam um grande consumo de disco e até mesmo consumo de processamento externo à aplicação.
 
-## Quando fazer caching?
-
 ## Cuidados na hora de Cachear o app
 
 1. O meu problema pode ser resolvido com uma melhor consulta ao database?
 2. A técnica que eu quero aplicar, realmente é a melhor pra minha situação?
 3. Possuo recurso suficiente para usar o store que estou propondo?
 4. No caso de adotar soluções externas, possuo recurso financeiro suficiente para cobrir os custos?
+
+## Tipos Diferentes de Cache
 
 * Action Caching (Cacheamento de Action)
 * Fragment Caching
