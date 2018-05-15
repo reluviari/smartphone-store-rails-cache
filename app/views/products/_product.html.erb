@@ -1,0 +1,41 @@
+<p>
+  <strong>Name:</strong>
+  <%= product.name %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= product.manufacturer %>
+</p>
+
+<p>
+  <strong>Release year:</strong>
+  <%= product.release_year %>
+</p>
+
+<h4>Sells</h4>
+<% product.sells.each_with_index do |sell, index| %>
+
+  <!-- 
+	Nos dois jeitos, a partial _sell.html.erb será renderizada para cada item da lista de vendas (product.sells). Mas a diferença entre os dois é que no primeiro método, será gerado apenas um registro de cache com todas as renderizações da partial _sell.html.erb e no segundo será gerado um registro de cache para cada vez que a partial for renderizada. Ou seja, se o meu produto tiver 2000 vendas, usando o primeiro método teremos como resultado um registro de cache contendo todo HTML resultante das renderizações e usando o segundo teremos 2000 registros de cache, cada um contendo do HTML resultando da renderização da partial para cada registro.
+
+	O gatilho para que o cache expire também é a atualização do registro. Mas no primeiro caso, atualizando um registro, todo o cache contendo HTML dos 2000 registros será expirado. E no segundo, atualizando um registro, apenas o cache daquele registro será expirado.
+
+	Lembrando que os dois casos podem ser aplicados tanto na técnica de Fragment quanto na Russian Doll Caching.
+  -->	
+
+  <!-- Russian Doll Caching - Mode 1-->
+  
+  <%= render partial: "sells/sell", collection: product.sells, cached: true %>	
+
+  <!-- Russian Doll Caching - Mode 2 -->
+  
+  <% #product.sells.each do |sell| %>
+	<% #cache sell do %>
+		<%#= render sell %>
+	<% #end %>
+  <% #end %>
+  
+  <!--<p><%#= (index + 1) %>. <%#= sell.date.strftime("%d/%m/%Y") %></p>-->
+
+<% end %>

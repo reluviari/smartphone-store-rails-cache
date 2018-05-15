@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
+<!--
+	Fragment Caching:
+	
+	Repare que para fazermos o caching, adicionamos o cache product circundando o render. Este é o jeito de utilizar este tipo de caching, nós solicitamos o cache e, caso ele não exista, a partial será renderizada normalmente.
+
+	Com este caching, a partial do objeto product será cacheada individualmente e o cache só vai expirar quando este objeto tiver um atualização. Isto ocorre porque na chave de um caching deste tipo é passado também o timestamp contendo o atributo updated_at do model ou seja, se o model for atualizado, a chave não será mais válida e um novo cache será gerado com os novos dados do objeto.
+-->
+
+<% cache @product do %>
+  <%= render @product %>
+<% end %>
