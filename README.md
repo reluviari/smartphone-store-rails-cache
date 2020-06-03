@@ -1,4 +1,10 @@
-# Learning Cache with RAILS 5
+<h1 align="center">
+  <strong>Cache with RAILS 5</strong>
+</h1> 
+
+<p align="center">
+    Learning Cache with RAILS 5
+</p> 
 
 ## Quando fazer caching?
 
@@ -86,14 +92,6 @@ Se mal aplicado, o caching pode trazer sérias dores de cabeça como perda de de
  $ git push heroku master
 ```
 
-## Todos
+## 🙋‍♂️ Author
 
- - Write MORE Tests
-
-
-License
-----
-
-MIT (change)
-
-**New Software, Hell Yeah!**
+* **Danilo Dias** - [reluviari](https://github.com/reluviari)
